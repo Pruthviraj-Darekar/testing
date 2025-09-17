@@ -1,0 +1,224 @@
+
+
+
+:root {
+    --primary-color: #3b5998; /* A professional deep blue */
+    --secondary-color: #6a85a4; /* A lighter blue */
+    --background-color: #f0f2f5; /* A very light grey/blue */
+    --card-background: #ffffff; /* White for content boxes */
+    --border-color: #d8dee9; /* A soft border color */
+    --text-color: #495057; /* Dark grey for body text */
+    --font-family: 'Montserrat', sans-serif;
+    --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.page-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background-color: var(--card-background);
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* --- Content Grid --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.services-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Service Cards --- */
+.service-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+}
+
+.service-card p {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+/* --- Chatbot Panel --- */
+.chatbot-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-container {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.chatbot-container h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 0;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.chatbot-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chatbot-input input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.chatbot-input input:focus {
+    border-color: var(--primary-color);
+}
+
+.chatbot-input button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-input button:hover {
+    background-color: #29487d;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .hero-section {
+        padding: 40px;
+    }
+    
+    .hero-section h2 {
+        font-size: 2em;
+    }
+}
