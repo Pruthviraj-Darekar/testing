@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Empowerment Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8a2be2;
+            --secondary: #ff69b4;
+            --accent: #9370db;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --info: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f7fe;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(138, 43, 226, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #ff4da6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .card-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Success Stories List Styles */
+        .story-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .story-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .story-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .story-field {
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        
+        .story-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .story-link:hover {
+            text-decoration: underline;
+        }
+        
+        .story-link::after {
+            content: "→";
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .story-link:hover::after {
+            transform: translateX(3px);
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            margin: 0 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Helpline Section */
+        .helpline-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .helpline-section .section-title h2 {
+            color: white;
+        }
+        
+        .helpline-section .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+        
+        .helpline-section .card h3 {
+            color: white;
+        }
+        
+        .helpline-section .card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .helpline-section .card-link {
+            color: var(--secondary);
+        }
+        
+        .contact-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .story-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .story-name {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Women<span>Empower</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#scholarships">Scholarships</a></li>
+                        <li><a href="#success-stories">Success Stories</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#helplines">Helplines</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Women, Transforming Futures</h1>
+                <p>Discover scholarships, success stories, government programs, and support systems designed to help women achieve their dreams.</p>
+                <a href="#scholarships" class="btn">Explore Opportunities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarships Section -->
+    <section id="scholarships">
+        <div class="container">
+            <div class="section-title">
+                <h2>Scholarships for Women</h2>
+                <p>Financial support for education and career development</p>
+            </div>
+            
+            <div class="card-container">
+                <!-- Scholarship cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section id="success-stories" style="background-color: #f0f8ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inspiring Success Stories</h2>
+                <p>Women who have broken barriers and achieved remarkable success</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" data-tab="all">All</button>
+                <button class="tab" data-tab="entrepreneurs">Entrepreneurs</button>
+                <button class="tab" data-tab="corporate">Corporate Leaders</button>
+                <button class="tab" data-tab="social">Social Innovators</button>
+            </div>
+            
+            <div class="tab-content active" id="all-stories">
+                <ul class="story-list">
+                    <!-- Success story list items will be dynamically inserted here -->
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="entrepreneurs-stories">
+                <ul class="story-list">
+                    <!-- Filtered entrepreneur stories will be inserted here -->
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="corporate-stories">
+                <ul class="story-list">
+                    <!-- Filtered corporate leader stories will be inserted here -->
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="social-stories">
+                <ul class="story-list">
+                    <!-- Filtered social innovator stories will be inserted here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Government Programs & Schemes</h2>
+                <p>Initiatives designed to support women's empowerment across India</p>
+            </div>
+            
+            <div class="card-container">
+                <!-- Program cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Helplines Section -->
+    <section id="helplines" class="helpline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Support Helplines</h2>
+                <p>Immediate assistance and support for women in need</p>
+            </div>
+            
+            <div class="card-container">
+                <!-- Helpline cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WomenEmpower</h3>
+                    <p>Your gateway to opportunities, support, and inspiration for women across India.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#scholarships">Scholarships</a></li>
+                        <li><a href="#success-stories">Success Stories</a></li>
+                        <li><a href="#programs">Government Programs</a></li>
+                        <li><a href="#helplines">Helplines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Important Resources</h3>
+                    <ul>
+                        <li><a href="https://www.ncw.nic.in/" target="_blank">National Commission for Women</a></li>
+                        <li><a href="https://wcd.nic.in/" target="_blank">Ministry of Women & Child Development</a></li>
+                        <li><a href="https://www.buddy4study.com/" target="_blank">Buddy4Study</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 WomenEmpower Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scholarship data
+        const scholarships = [
+            {
+                name: "Pragati Scholarship (AICTE)",
+                benefit: "₹50,000 per annum for technical diploma/degree",
+                link: "https://education.vikaspedia.in/viewcontent/education/policies-and-schemes/scholarships/u-g-scholarships/pragati-scholarship-for-girls?lgn=en",
+                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "CBSE UDAAN",
+                benefit: "Free STEM mentoring, tablet, study materials",
+                link: "https://www.buddy4study.com/article/scholarships-for-indian-girls-and-women",
+                image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Indira Gandhi Single Girl Child Scholarship (UGC)",
+                benefit: "₹36,200 per year for 2 years (PG only)",
+                link: "https://www.buddy4study.com/article/scholarships-for-indian-girls-and-women",
+                image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Begum Hazrat Mahal National Scholarship",
+                benefit: "₹10,000–₹12,000 per annum (minority girls)",
+                link: "https://www.buddy4study.com/article/scholarships-for-indian-girls-and-women",
+                image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "SOF Girl Child Scholarship Scheme",
+                benefit: "₹5,000 one-time",
+                link: "https://www.buddy4study.com/article/scholarships-for-indian-girls-and-women",
+                image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Women Scientists Scheme (DST)",
+                benefit: "Up to ₹50,000 per annum",
+                link: "https://www.buddy4study.com/article/scholarships-for-indian-girls-and-women",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+
+        // Success stories data (without images)
+        const successStories = [
+            {
+                name: "Falguni Nayar",
+                field: "Beauty & Retail (Founder of Nykaa)",
+                link: "https://www.plerdy.com/blog/top-successful-women-entrepreneurs-in-india/",
+                category: "entrepreneurs"
+            },
+            {
+                name: "Kiran Mazumdar-Shaw",
+                field: "Biotechnology (Founder of Biocon)",
+                link: "https://www.upes.ac.in/blog/business/success-stories-of-women-entrepreneurs",
+                category: "entrepreneurs"
+            },
+            {
+                name: "Roshni Nadar Malhotra",
+                field: "IT (Chairperson of HCLTech)",
+                link: "https://www.indiatoday.in/world/story/indian-origin-women-businesswoman-shine-on-fortunes-2025-most-powerful-women-list-roshni-nadar-malhotra-2732036-2025-05-28",
+                category: "corporate"
+            },
+            {
+                name: "Vineeta Singh",
+                field: "Cosmetics (CEO of Sugar Cosmetics)",
+                link: "https://mumbaiuncensored.com/2025/07/28/the-unstoppable-25-tales-of-25-indian-women-making-waves-in-2025/",
+                category: "entrepreneurs"
+            },
+            {
+                name: "Upasana Taku",
+                field: "Fintech (Co-founder of MobiKwik)",
+                link: "https://www.plerdy.com/blog/top-successful-women-entrepreneurs-in-india/",
+                category: "entrepreneurs"
+            },
+            {
+                name: "Aditi Gupta",
+                field: "Social Entrepreneurship (Co-founder of Menstrupedia)",
+                link: "https://mumbaiuncensored.com/2025/07/28/the-unstoppable-25-tales-of-25-indian-women-making-waves-in-2025/",
+                category: "social"
+            },
+            {
+                name: "Indra Nooyi",
+                field: "Former CEO of PepsiCo",
+                link: "https://www.forbes.com/profile/indra-nooyi/",
+                category: "corporate"
+            },
+            {
+                name: "Sudha Murthy",
+                field: "Philanthropist & Author (Chairperson of Infosys Foundation)",
+                link: "https://en.wikipedia.org/wiki/Sudha_Murty",
+                category: "social"
+            },
+            {
+                name: "Ritu Karidhal",
+                field: "Aerospace Scientist (Mars Orbiter Mission)",
+                link: "https://en.wikipedia.org/wiki/Ritu_Karidhal",
+                category: "corporate"
+            },
+            {
+                name: "Mary Kom",
+                field: "Boxing (Olympic Medalist)",
+                link: "https://en.wikipedia.org/wiki/Mary_Kom",
+                category: "social"
+            },
+            {
+                name: "Arundhati Bhattacharya",
+                field: "Banking (Former Chairperson of SBI)",
+                link: "https://en.wikipedia.org/wiki/Arundhati_Bhattacharya",
+                category: "corporate"
+            },
+            {
+                name: "Kavita Devi",
+                field: "Wrestling (First Indian woman wrestler in WWE)",
+                link: "https://en.wikipedia.org/wiki/Kavita_Dalal",
+                category: "social"
+            }
+        ];
+
+        // Programs data
+        const programs = [
+            {
+                name: "Beti Bachao Beti Padhao (BBBP)",
+                objective: "Save girl child, improve sex ratio, promote education of girls",
+                link: "https://cleartax.in/s/women-empowerment-schemes-in-india",
+                image: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Mission Shakti",
+                objective: "Lifecycle women empowerment: safety, security, social, economic support",
+                link: "https://www.pib.gov.in/FactsheetDetails.aspx?Id=149234",
+                image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+                objective: "Maternity benefit scheme providing financial aid for pregnant and lactating women",
+                link: "https://www.jagranjosh.com/articles/women-empowerment-schemes-in-india-1741357122-1",
+                image: "https://images.unsplash.com/photo-1519455953759-2c66d886e5e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Mahila Kisan Sashaktikaran Pariyojana (MKSP)",
+                objective: "Empower women farmers with training, financial aid, and better productivity",
+                link: "https://www.ncw.gov.in/publications/women-centric-schemes-by-different-ministries-of-government-of-india-goi/",
+                image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Deendayal Antyodaya Yojana - National Urban Livelihoods Mission (DAY-NULM)",
+                objective: "Support women self-help groups and micro-enterprises in urban areas",
+                link: "https://www.ncw.gov.in/publications/women-centric-schemes-by-different-ministries-of-government-of-india-goi/",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Pradhan Mantri Ujjwala Yojana (PMUY)",
+                objective: "Free LPG connections for women from BPL families for clean cooking fuel",
+                link: "https://cleartax.in/s/women-empowerment-schemes-in-india",
+                image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+
+        // Helplines data
+        const helplines = [
+            {
+                name: "NCW 24×7 Women Helpline",
+                purpose: "Round the clock helpline for women in distress",
+                number: "7827170170",
+                image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "National Women Helpline",
+                purpose: "Emergency & non-emergency response for women affected by violence",
+                number: "181",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Emergency Response Support System (ERSS)",
+                purpose: "Single number emergency response for Police, Fire, Health services",
+                number: "112",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Child Helpline",
+                purpose: "Emergency support for children in distress",
+                number: "1098",
+                image: "https://images.unsplash.com/photo-1519455953759-2c66d886e5e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Cyber Crime Helpline",
+                purpose: "Help for victims of cyber crimes",
+                number: "1930",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Women Helpline (National Commission for Women - NCW)",
+                purpose: "Digital complaint system and support for women",
+                number: "10920",
+                image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+
+        // Function to create cards
+        function createCard(item, type) {
+            let cardHTML = '';
+            
+            if (type === 'scholarship') {
+                cardHTML = `
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="card-content">
+                            <h3>${item.name}</h3>
+                            <p>${item.benefit}</p>
+                            <a href="${item.link}" target="_blank" class="card-link">Learn More & Apply</a>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'program') {
+                cardHTML = `
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="card-content">
+                            <h3>${item.name}</h3>
+                            <p>${item.objective}</p>
+                            <a href="${item.link}" target="_blank" class="card-link">More Information</a>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'helpline') {
+                cardHTML = `
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="card-content">
+                            <h3>${item.name}</h3>
+                            <p>${item.purpose}</p>
+                            <div class="contact-number">${item.number}</div>
+                            <a href="tel:${item.number}" class="card-link">Call Now</a>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return cardHTML;
+        }
+
+        // Function to create success story list items
+        function createStoryListItem(story) {
+            return `
+                <li class="story-item">
+                    <div class="story-header">
+                        <div class="story-name">${story.name}</div>
+                    </div>
+                    <div class="story-field">${story.field}</div>
+                    <a href="${story.link}" target="_blank" class="story-link">Read Success Story</a>
+                </li>
+            `;
+        }
+
+        // Function to populate sections
+        function populateSection(containerId, data, type) {
+            const container = document.querySelector(`#${containerId} .card-container`);
+            container.innerHTML = '';
+            
+            data.forEach(item => {
+                container.innerHTML += createCard(item, type);
+            });
+        }
+
+        // Function to filter success stories by category
+        function filterStories(category) {
+            const filteredStories = category === 'all' 
+                ? successStories 
+                : successStories.filter(story => story.category === category);
+            
+            const container = document.querySelector(`#${category}-stories .story-list`);
+            container.innerHTML = '';
+            
+            filteredStories.forEach(story => {
+                container.innerHTML += createStoryListItem(story);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate all sections
+            populateSection('scholarships', scholarships, 'scholarship');
+            populateSection('programs', programs, 'program');
+            populateSection('helplines', helplines, 'helpline');
+            
+            // Populate success stories
+            filterStories('all');
+            filterStories('entrepreneurs');
+            filterStories('corporate');
+            filterStories('social');
+            
+            // Tab functionality
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-stories`).classList.add('active');
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
